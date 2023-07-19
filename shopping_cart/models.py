@@ -1,11 +1,8 @@
 from django.db import models
 
+from inventory.models import Product
 # Create your models here.
-
-class Shopping_cart(models.Model):
-    name = models.CharField(max_length=10)
-    price = models.DecimalField(max_digits=8, decimal_places=2)
+class Shopping_cart (models.Model):
+    products = models.ManyToManyField(Product) 
+    product = models.CharField(max_length=30)
     quantity = models.PositiveIntegerField()
-    total_items= models.CharField(max_length=20)
-    
-    

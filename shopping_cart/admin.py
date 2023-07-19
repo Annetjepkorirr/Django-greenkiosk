@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Shopping_cart
 
 # Register your models here.
+from .models import Shopping_cart
+
 class Shopping_cart_admin(admin.ModelAdmin):
-    list_display = ("name","price","quantity","total_items")
-    
-admin.site.register(Shopping_cart,Shopping_cart_admin)  
+    list_display = ["product","quantity"]
+
+admin.site.register(Shopping_cart,Shopping_cart_admin)
