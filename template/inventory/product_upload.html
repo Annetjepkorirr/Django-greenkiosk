@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #btn{
+            background-color: brown;
+        }
+    </style>
 </head>
 <body>
     <form method="POST" class="upload-form">
         {%csrf_token%}
         {{form.as_p}}
-        <button type="submit" >Submit</button> 
+        <button type="submit" id="btn">Submit</button> 
 
     </form>
 </body>
