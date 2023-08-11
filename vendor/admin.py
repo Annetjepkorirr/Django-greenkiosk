@@ -4,6 +4,6 @@ from django.contrib import admin
 from .models import Vendor
 
 class Vendor_admin(admin.ModelAdmin):
-    list_display = ("first_name","last_name","email","phone","password")
+    list_display = ("first_name","last_name","email","phone")
 
 admin.site.register(Vendor,Vendor_admin)

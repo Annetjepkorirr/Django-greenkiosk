@@ -6,12 +6,34 @@
     <title>Document</title>
     <style>
         #btn{
-            background-color: brown;
+            background-color: wheat;
+            border-radius: 5%;
+        }
+
+        body > form{
+            margin-left: 700px;
+            margin-top: 30px;
+            border: 1px solid;
+            width: 30%;
+            background-color: darkorange;
+            text-align: center;
+            box-shadow: 2px 2px 4px black;
+            border-radius: 20px;
+            font-size: 18px;
+            padding: 20px 10px;
+        }
+        .upload-form{
+            border-radius: 20px;
+        }
+        .product{
+            margin-left: 850px;
+            font-size: 35px;
         }
     </style>
 </head>
+<h2 class="product" >Product Upload Form</h2>
 <body>
-    <form method="POST" class="upload-form">
+    <form class="upload-form" method="POST">
         {%csrf_token%}
         {{form.as_p}}
         <button type="submit" id="btn">Submit</button> 
