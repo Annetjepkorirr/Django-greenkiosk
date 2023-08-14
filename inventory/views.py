@@ -30,7 +30,7 @@ def product_upload_view(request):
 def products_list(request):
     products = Product.objects.all()
     return render(request, "inventory/products_list.html", {"products": products})
-def products_detail_view(request, id):
+def product_detail(request, id):
     product = Product.objects.get(id=id)
     return render(request, "inventory/product_detail.html", {"product": product})
 def product_update_view(request, id):
