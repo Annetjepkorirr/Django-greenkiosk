@@ -45,7 +45,7 @@ def product_update_view(request, id):
     return render(request, "inventory/edit_product.html", {"form": form})
 def delete_product(request, id):
     product = get_object_or_404(Product, id=id)
-    if request.method == "POST":
+    if request.method == "POST":    
         product.delete()
         return redirect("products_list_view")
     return render(request, "delete_product.html", {"product": product})

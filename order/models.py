@@ -8,9 +8,7 @@ from delivery.models import Delivery
 class Order(models.Model):
     order_status  = models.CharField(max_length=10)
     items = models.CharField(max_length=10)
-
     customer_information  = models.CharField(max_length=15)
-    # payment_details = models.CharField(max_length=32)
     shopping_cart = models.ForeignKey(Shopping_cart,null=True, on_delete=models.CASCADE)
     delivery= models.OneToOneField(Delivery, null=True,on_delete=models.CASCADE)
     

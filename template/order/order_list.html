@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Products List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5F5F5;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .product {
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product-image {
+            width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .product-number {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .product-payment {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Products List</h1>
+    <div class="product-container">
+        {% for order in orders %}
+        <div class="product">
+            <img class="product-image" src="{{ order.image.url }}" alt="Image">
+            <h3 class="product-title">{{ order.order_status }}</h3>
+            <p class="product-number">Order Number: {{ order.items }}</p>
+            <p class="product-payment">Payment: {{ order.delivery }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
