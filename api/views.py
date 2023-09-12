@@ -3,6 +3,8 @@ from .serializers import CustomerSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from customer.models import Customer
+from .serializers import OrderSerializer
+from order.models import Order
 #create various http methods from here
 
 class CustomerListView(APIView):
@@ -40,3 +42,38 @@ class CustomerDetailView(APIView):
         return Response("customer deleted", status = status.HTTP_204_CONTENT)
 
 
+class OrderListView(APIView):
+    def get(self,request):
+        order = Order.objects.all()
+        serializer = OrderSerializer(order, many =True)
+        return Response(serializer.data) 
+
+    def post(self, request):
+        serializer = OrderSerializer(data =request.data)
+        if serializer.is_valid():
+            serializer.save
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+            return  Response(serializer.error, status =HTTP_400_BAD_REQUEST)
+
+# class Shopping_cartListView(APIView):
+#     def get(self,request):
+#         shopping_cart = Shopping_cart.objects.all()
+#         serializer = Shopping_cartSerializer(order, many =True)
+#         return Response(serializer.data) 
+
+#     def post(self, request):
+#         serializer = Shopping_cartSerializer(data =request.data)
+#         if serializer.is_valid():
+#             serializer.save
+#             return Response(serializer.data, status = status.HTTP_201_CREATED)
+#             return  Response(serializer.error, status =HTTP_400_BAD_REQUEST)            
+
+# class AddToCartView(APIView):
+#     def post(self,request,format =None):
+#         cart_id = request.data["cart_id"]
+#         product_id = request.data["product_id"]
+#         cart = Shopping_cart.objects.get(id = cart_id)
+#         product = Product.objects.get(id = product_id)
+#         updated_cart = cart.add_product(product)
+#         serializer =  Shopping_cart(updated_cart)
+#         return Response(serializer.data)             
